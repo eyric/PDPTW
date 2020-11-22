@@ -1,0 +1,88 @@
+<html>
+<head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    　　
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="./visjs/vis.min.js"></script>
+    <script type="text/javascript" src="./layer/layer.js"></script>
+    <link href="./visjs/vis.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- JS file-->
+    <script type="text/javascript" src="./visualization.js"></script>
+    <!-- CSS file-->
+    <link href="./visualization.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON('./instance.json', {}, function (data) {
+                var cont = '';
+                data.forEach(function (e) {
+                    cont += '<option>' + e + '</option>';
+                });
+                $("#sl").append(cont);
+            });
+
+            solve("pdptw100/lc101.txt");
+
+            $("#sl").change(function () {
+                var name = this.value;
+                if (name.indexOf("_") < 0) {
+                    if (name === 'task.txt') {
+                        solve(name);
+                    } else {
+                        solve("pdptw100/" + name);
+                    }
+
+                } else {
+                    var num = name.split("_")[1];
+                    if (num === 2) {
+                        solve("pdptw200/" + name);
+                    } else if (num === 4) {
+                        solve("pdptw400/" + name);
+                    } else if (num === 6) {
+                        solve("pdptw600/" + name);
+                    } else if (num === 8) {
+                        solve("pdptw800/" + name);
+                    } else if (num === 10) {
+                        solve("pdptw1000/" + name);
+                    }
+                }
+            });
+
+        });
+
+
+        function solve(name) {
+        	layer.load();
+            var url = "http://localhost:8080/solomon/";
+            $.getJSON(url, {'name': name}, function (data) {
+                parseText(JSON.stringify(data));
+            });
+                   }
+    </script>
+</head>
+<body>
+<div class="row" style="margin-top: 8px">
+    <label class="col-md-2 col-md-offset-5">
+        <select class="form-control" id="sl">
+
+        </select>
+    </label>
+
+
+</div>
+
+<div class="row" style="margin-top: 10px">
+    <div class="container" id="mynetwork">
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+Date: 2020-11-22
+requestsPath: resources/test/data/pdptw100/lc101.txt
+vehiclesPath: resources/test/li_lim_benchmark/vehicles.json
+outputPath: resources/test/li_lim_benchmark/results/dynamic
+dynamic: false
+iterations: 10
+decompositionCycles: 3
+iterationsPerDecomposition: 3
+maxVehiclesInGroup: 5
+algorithms:
+	generation: GreedyGeneration
+	insertion: GreedyInsertion
+	removal: WorstRemoval
+	optimization: TabuOptimization
+	decomposition: SweepDecomposition
+	objective: TotalDistanceObjective
+	scheduler: DriveFirstScheduler
+
+Objective value: 828.9368669428338
+Vehicles used: 10
+
+Solution(vehicles=[{"id": "truck9","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck7","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck1","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck2","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck6","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck8","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck3","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck10","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck5","maxCapacity": 200, "startLocation":{"x":40,"y":50}}, {"id": "truck4","maxCapacity": 200, "startLocation":{"x":40,"y":50}}], objectiveValue=828.9368669428338, diversity=0.0, second=0.0, rate=0.7598089772257333)

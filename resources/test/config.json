@@ -1,0 +1,24 @@
+{
+	"tests": [
+		{
+			"requestsPath": "resources/test/data/pdptw100/lc101.txt",
+			"vehiclesPath": "resources/test/li_lim_benchmark/vehicles.json",
+			"outputPath": "resources/test/li_lim_benchmark/results/dynamic",
+			"dynamic": false,
+			"actual": false,
+			"iterations": 10,
+			"decompositionCycles": 3,
+			"iterationsPerDecomposition": 3,
+			"maxVehiclesInGroup": 5,
+			"algorithms": {
+				"generation": "greedy",
+				"insertion": "greedy",
+				"removal": "worst",
+				"optimization": "tabu",
+				"decomposition": "sweep",
+				"objective": "total_distance",
+				"scheduler": "drive_first"
+			}
+		}
+	]
+}
