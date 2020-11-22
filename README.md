@@ -66,6 +66,8 @@ Steps to run visualization:
 3. import file
 ```
 
+![image](http://106.12.212.42/upload/2020/11/image-42abba33aeca48c295fcac270818ee19.png)
+
 ## Built With
 
 * Maven
